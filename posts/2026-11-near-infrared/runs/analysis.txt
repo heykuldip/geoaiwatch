@@ -1,0 +1,144 @@
+12 runs   folds ['NE', 'NW', 'SE', 'SW']   seeds [0, 1, 2]
+frozen: 96 frames, 120 epochs, batch 16, crop 256, primary epoch 120
+Primary estimand: cell-level. Pooled confusion: sensitivity.
+support invariant: all 1,920 cell x class pairs >= 1024 px (smallest 1,674)
+
+==============================================================================
+PRIMARY RESULT, cell-level — epoch 120
+==============================================================================
+Seeds averaged within each test cell; cells weighted equally within a fold.
+
+fold-level:
+      d_miou  rgbn_miou  rgb0_miou
+fold                              
+NE    0.1006     0.4541     0.3535
+NW    0.1148     0.4600     0.3451
+SE    0.0961     0.3999     0.3038
+SW    0.0909     0.4373     0.3465
+
+delta mIoU across 4 folds: mean +0.1006  median +0.0984  min +0.0909  max +0.1148  sd 0.0103
+folds where RGB+NIR is better: 4/4
+
+per-class delta IoU by fold (* = |d| >= 0.02):
+     agriculture forest_veg impervious      soil     water
+fold                                                      
+NE      +0.0211*   +0.0342*    -0.0028  +0.0219*  +0.4287*
+NW      +0.0445*   +0.0555*    +0.0047  +0.0214*  +0.4480*
+SE      +0.0427*   +0.0579*   +0.0222*  +0.0239*  +0.3338*
+SW      +0.0513*   +0.0407*    +0.0133  +0.0300*  +0.3191*
+
+across folds, per class:
+               mean  median     min     max      sd  folds_positive  folds_beyond_threshold
+agriculture  0.0399  0.0436  0.0211  0.0513  0.0131               4                       4
+forest_veg   0.0471  0.0481  0.0342  0.0579  0.0115               4                       4
+impervious   0.0094  0.0090 -0.0028  0.0222  0.0108               3                       1
+soil         0.0243  0.0229  0.0214  0.0300  0.0040               4                       4
+water        0.3824  0.3813  0.3191  0.4480  0.0654               4                       4
+
+within-fold seed sd of the fold's cell-mean delta mIoU: {'NE': 0.0032, 'NW': 0.0074, 'SE': 0.0174, 'SW': 0.0088}
+  (optimization variance; the fold-level sd above is the spatial term)
+cells with RGB+NIR better: 382/384 (99.5%)
+
+==============================================================================
+SENSITIVITY: pooled confusion, pixel-weighted — epoch 120
+==============================================================================
+One confusion matrix per fold and seed, summed over 96 cells; seeds averaged within fold.
+
+fold-level:
+      d_miou  rgbn_miou  rgb0_miou
+fold                              
+NE    0.1043     0.5025     0.3982
+NW    0.1339     0.5672     0.4333
+SE    0.1000     0.4369     0.3368
+SW    0.1024     0.5270     0.4246
+
+delta mIoU across 4 folds: mean +0.1102  median +0.1034  min +0.1000  max +0.1339  sd 0.0159
+folds where RGB+NIR is better: 4/4
+
+per-class delta IoU by fold (* = |d| >= 0.02):
+     agriculture forest_veg impervious      soil     water
+fold                                                      
+NE      +0.0295*   +0.0349*    -0.0006  +0.0244*  +0.4333*
+NW      +0.0641*   +0.0557*    +0.0071  +0.0281*  +0.5144*
+SE      +0.0582*   +0.0497*   +0.0324*  +0.0240*  +0.3359*
+SW      +0.0679*   +0.0427*   +0.0284*  +0.0357*  +0.3375*
+
+across folds, per class:
+               mean  median     min     max      sd  folds_positive  folds_beyond_threshold
+agriculture  0.0549  0.0611  0.0295  0.0679  0.0174               4                       4
+forest_veg   0.0458  0.0462  0.0349  0.0557  0.0090               4                       4
+impervious   0.0168  0.0177 -0.0006  0.0324  0.0160               3                       2
+soil         0.0280  0.0262  0.0240  0.0357  0.0054               4                       4
+water        0.4053  0.3854  0.3359  0.5144  0.0858               4                       4
+
+==============================================================================
+CHECKPOINT SENSITIVITY
+==============================================================================
+The convergence probe showed the training-loss gap narrowing with training.
+Whether the held-out delta narrows likewise is the question these checkpoints answer.
+
+held-out: cell-level primary (means over 4 folds); training loss: means over 4 folds x 3 seeds
+         rgbn    rgb0  d_miou  d_miou_pooled  tl_rgbn  tl_rgb0  train_gap
+epoch                                                                    
+20     0.4369  0.3366  0.1003         0.1063   0.4306   0.4703     0.0398
+40     0.4394  0.3403  0.0990         0.1066   0.3205   0.3434     0.0229
+80     0.4368  0.3394  0.0974         0.1051   0.2294   0.2420     0.0126
+120    0.4378  0.3372  0.1006         0.1102   0.1847   0.1937     0.0091
+
+cell-level delta mIoU by fold and epoch:
+epoch     20      40      80      120
+fold                                 
+NE     0.1057  0.0948  0.1034  0.1006
+NW     0.1111  0.1139  0.1125  0.1148
+SE     0.0902  0.0933  0.0874  0.0961
+SW     0.0943  0.0942  0.0862  0.0909
+
+cell-level per-class delta by epoch (mean over folds):
+       agriculture  forest_veg  impervious    soil   water
+epoch                                                     
+20          0.0313      0.0502      0.0162  0.0190  0.3848
+40          0.0277      0.0479      0.0142  0.0208  0.3847
+80          0.0318      0.0473      0.0033  0.0222  0.3822
+120         0.0399      0.0471      0.0094  0.0243  0.3824
+
+==============================================================================
+DIAGNOSTICS, cell-level — epoch 120
+==============================================================================
+Expectation in train.py: NIR should help vegetation vs non-vegetated
+but not necessarily agriculture vs forest, since both are vegetated and a
+single date carries no phenology.
+
+confusion rates (fraction of truth class predicted as the other):
+      rgbn_agriculture_to_forest_veg  rgbn_forest_veg_to_agriculture  rgb0_agriculture_to_forest_veg  rgb0_forest_veg_to_agriculture
+fold                                                                                                                                
+NE                            0.2425                          0.1346                          0.2758                          0.1330
+NW                            0.2828                          0.1275                          0.2992                          0.1337
+SE                            0.2471                          0.1255                          0.2755                          0.1232
+SW                            0.3960                          0.0730                          0.3850                          0.0593
+
+mean over folds:
+  agriculture_to_forest_veg        rgbn 0.2921  rgb0 0.3089  delta -0.0168
+  forest_veg_to_agriculture        rgbn 0.1151  rgb0 0.1123  delta +0.0028
+  (negative delta = RGB+NIR confuses the pair less)
+
+==============================================================================
+QA-STATUS HETEROGENEITY, cell-level — epoch 120
+==============================================================================
+
+cells at epoch 120: 384, seeds averaged within each (fully actual 70, fully synthetic 237, other 77)
+Descriptive effect heterogeneity, not a causal estimate of gap
+filling: QA status covaries with AOI, date and season.
+
+FULLY ACTUAL (Layer 1 == 1 everywhere)  (n=70 cells)
+  d_miou +0.0984  agriculture +0.0357  forest_veg +0.0524  impervious +0.0069  soil +0.0271  water +0.3700
+
+FULLY SYNTHETIC (Layer 1 == 100 everywhere)  (n=237 cells)
+  d_miou +0.0999  agriculture +0.0453  forest_veg +0.0425  impervious +0.0113  soil +0.0233  water +0.3769
+
+delta mIoU vs mean_normalized_gapfill_score: r = -0.030 (n = 384 cells)
+  (a 0-1 rescaling of the historical Layer-1 code, not an asserted physical fraction)
+
+==============================================================================
+SCOPE: four support-selected AOIs in East Asia, one architecture,
+one task, four spatial folds sharing most of their training pixels.
+Not a statement about DynamicEarthNet generally.

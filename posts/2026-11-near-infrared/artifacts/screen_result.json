@@ -1,0 +1,24 @@
+{
+  "retained_classes": [
+    "agriculture",
+    "forest_veg",
+    "impervious",
+    "soil",
+    "water"
+  ],
+  "eligible_aois": [
+    "6466_3380_13_48N",
+    "6730_3430_13_50N",
+    "6813_3313_13_50N",
+    "7026_3201_13-52N"
+  ],
+  "aois_per_class": {
+    "impervious": 30,
+    "agriculture": 14,
+    "forest_veg": 44,
+    "wetlands": 0,
+    "soil": 43,
+    "water": 11
+  },
+  "stopped": false
+}

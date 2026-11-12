@@ -1,0 +1,69 @@
+{
+  "k_aois_per_class": 3,
+  "min_test_support_pixels": 1024,
+  "min_retained_classes": 3,
+  "min_eligible_aois": 3,
+  "candidate_classes": [
+    "impervious",
+    "agriculture",
+    "forest_veg",
+    "wetlands",
+    "soil",
+    "water"
+  ],
+  "expected_dates": [
+    "2018-01-01",
+    "2018-02-01",
+    "2018-03-01",
+    "2018-04-01",
+    "2018-05-01",
+    "2018-06-01",
+    "2018-07-01",
+    "2018-08-01",
+    "2018-09-01",
+    "2018-10-01",
+    "2018-11-01",
+    "2018-12-01",
+    "2019-01-01",
+    "2019-02-01",
+    "2019-03-01",
+    "2019-04-01",
+    "2019-05-01",
+    "2019-06-01",
+    "2019-07-01",
+    "2019-08-01",
+    "2019-09-01",
+    "2019-10-01",
+    "2019-11-01",
+    "2019-12-01"
+  ],
+  "fold_geometry": {
+    "tile": 1024,
+    "test_quadrant": 512,
+    "test_trim_px": 0,
+    "train_recess_px": 32
+  },
+  "excluded_class_handling": "IGNORE_INDEX",
+  "no_backtracking": true,
+  "provenance": "frozen after pilot support inspection of 4 AOIs; before the full 55-AOI screen and before any model performance was observed",
+  "notes": "test-label record contains 22 AOI dirs, of which 2006_3280_13_15N and 3002_4273_13_22S are byte-identical duplicates of training-release entries",
+  "ignore_index": 255,
+  "frozen_at": "2026-09-18T00:00:00Z",
+  "frozen_commit": "<sha>",
+  "secondary_analysis": {
+    "name": "observed_vs_synthesized",
+    "criterion": "PF-QA Layer 1 == 1 across the full tile",
+    "n_frames": 29,
+    "n_synthetic": 61,
+    "n_mixed": 6,
+    "frames_per_aoi": {
+      "6466_3380_13": 5,
+      "6730_3430_13": 7,
+      "6813_3313_13": 5,
+      "7026_3201_13": 12
+    },
+    "min_class_support_in_subset": 1940,
+    "frame_list": "artifacts/observed_frames.parquet",
+    "reporting": "paired comparison at AOI x date level; not a separate headline"
+  }
+}

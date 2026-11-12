@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code or its results, please cite it as below, and cite DynamicEarthNet for the data."
+title: "geoaiwatch: code and results for the GeoAIWatch posts"
+type: software
+authors:
+  - family-names: Atwal
+    given-names: Kuldip Singh
+    orcid: "https://orcid.org/0000-0002-9483-4668"
+repository-code: "https://github.com/heykuldip/geoaiwatch"
+license:
+  - MIT
+  - CC-BY-SA-4.0
+  - CC-BY-NC-ND-4.0
+references:
+  - type: conference-paper
+    title: "DynamicEarthNet: Daily Multi-Spectral Satellite Dataset for Semantic Change Segmentation"
+    authors:
+      - family-names: Toker
+        given-names: Aysim
+    collection-title: "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+    year: 2022
+    url: "https://arxiv.org/abs/2203.12560"

@@ -1,0 +1,149 @@
+{
+  "method": "each run file tied to every training log whose losses match all its epochs, to four decimals; batches are the distinct per-epoch counts, the same in every matching log",
+  "runs": {
+    "NE_s0": {
+      "logs": [
+        "grid-3183347_3.out"
+      ],
+      "sha256": [
+        "04178f277da3f725be0f9901c4c15ef2a43738438870e1e4ce04821a7a7259a1"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "NE_s1": {
+      "logs": [
+        "grid-3183347_4.out"
+      ],
+      "sha256": [
+        "8d02b1baff695cfb1060604fa627bca24c496ba77d8a3c3120332e237b817fa9"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "NE_s2": {
+      "logs": [
+        "grid-3183347_5.out"
+      ],
+      "sha256": [
+        "48e8b38eddcff2a13c22751409d694b134d2bbc8b53077c2216b1e4542915c1f"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "NW_s0": {
+      "logs": [
+        "grid-3183347_0.out"
+      ],
+      "sha256": [
+        "ee46056861cbd1ef91e215ad6129ea08ec69b6fe2ec332cf3b33c121ddf5d6c5"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "NW_s1": {
+      "logs": [
+        "grid-3183347_1.out"
+      ],
+      "sha256": [
+        "dc486bebf8f092756c73e01b13e5c30fd459a8a9e3383e280896adc6499c94f0"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "NW_s2": {
+      "logs": [
+        "grid-3183347_2.out"
+      ],
+      "sha256": [
+        "d130b867a6bc661d7b913c864852e7e4d4f025e22b208807df8213609320baac"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SE_s0": {
+      "logs": [
+        "grid-3183347_9.out"
+      ],
+      "sha256": [
+        "c885b74de1e94bb683dfdeb7a4fc0167066542f41a516de3a83c374a0c0ddbb2"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SE_s1": {
+      "logs": [
+        "grid-3183347_10.out"
+      ],
+      "sha256": [
+        "2178306592a11b82dec6d0f83816ac8b5b4effd6ed0b520922212e837d472792"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SE_s2": {
+      "logs": [
+        "grid-3183347_11.out"
+      ],
+      "sha256": [
+        "20da2136b0aaee016ab1be378a34ba114deb6b89d0db91b923f141d77e4c9ac9"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SW_s0": {
+      "logs": [
+        "grid-3183347_6.out"
+      ],
+      "sha256": [
+        "5f48b943d9a194e78ba62725d17e60c028bd211dd9de798775df3b6300a1e70a"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SW_s1": {
+      "logs": [
+        "grid-3183347_7.out"
+      ],
+      "sha256": [
+        "98da868aa035fdc292e82d590f42e52661a668b7655e06dc0c68da7d3f972a07"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SW_s2": {
+      "logs": [
+        "grid-3183347_8.out"
+      ],
+      "sha256": [
+        "96e747cc27e1d1fedfe646c29109f5d609fe5eec9901e19903709ba291e2c676"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    }
+  }
+}

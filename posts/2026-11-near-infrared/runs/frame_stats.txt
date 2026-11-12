@@ -1,0 +1,16 @@
+epoch 120; 384 cells, seeds averaged within each cell
+all cells: ΔmIoU mean +0.101, median +0.105; Δwater mean +0.382, median +0.376
+
+=== Yangzhou (Post 1 figure): 6813_3313_13 2018-04-01 NW
+  mIoU   RGB 0.281 -> RGB+NIR 0.417  Δ +0.136 (seeds +0.137, +0.146, +0.126); 82% of cells gain less; 1.3x the median
+  water  RGB 0.158 -> RGB+NIR 0.631  Δ +0.473 (seeds +0.473, +0.460, +0.487); 65% of cells gain less
+  per-class Δ: agriculture +0.069, forest_veg +0.062, impervious +0.043, soil +0.033, water +0.473
+  land cover: agriculture 66.5%, forest_veg 12.1%, impervious 8.4%, soil 6.6%, water 6.4%
+  QA: fully observed pixels 100.0%, fully synthetic pixels 0.0%
+
+=== Andong (the rule's pick): 7026_3201_13 2019-11-01 NW
+  mIoU   RGB 0.364 -> RGB+NIR 0.546  Δ +0.182 (seeds +0.182, +0.158, +0.204); 98% of cells gain less; 1.7x the median
+  water  RGB 0.163 -> RGB+NIR 0.854  Δ +0.691 (seeds +0.713, +0.553, +0.807); 96% of cells gain less
+  per-class Δ: agriculture +0.176, forest_veg +0.029, impervious +0.011, soil +0.002, water +0.691
+  land cover: agriculture 4.5%, forest_veg 59.6%, impervious 7.8%, soil 18.6%, water 9.5%
+  QA: fully observed pixels 80.1%, fully synthetic pixels 1.8%

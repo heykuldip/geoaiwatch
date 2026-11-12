@@ -1,0 +1,6 @@
+{
+  "frame": "6813_3313_13, 2018-04-01, quadrant NW, seed 0, epoch 120",
+  "only_near_infrared_right_pct": 14.9,
+  "only_color_right_pct": 6.6,
+  "note": "to one decimal; Figure 3's legend and the post round them to whole percentages (15% and 7%); figures.py checks its render against these"
+}

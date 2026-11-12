@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geoaiwatch"
+version = "0.1.0"
+description = "Code for the GeoAIWatch posts"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "pyarrow", "rasterio"]
+
+[project.optional-dependencies]
+train = ["torch==2.4.1", "segmentation-models-pytorch==0.3.4"]
+figures = ["matplotlib", "torch==2.4.1", "segmentation-models-pytorch==0.3.4"]
+planet = ["planet>=3.7,<4"]
+test = ["pytest", "ruff", "planet>=3.7,<4", "matplotlib", "nbmake"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

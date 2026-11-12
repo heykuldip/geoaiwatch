@@ -1,0 +1,165 @@
+{
+  "method": "each run file tied to every training log whose losses match all its epochs, to four decimals; batches are the distinct per-epoch counts, the same in every matching log",
+  "runs": {
+    "NE_s0": {
+      "logs": [
+        "grid-537752_3.out",
+        "grid-540885_3.out"
+      ],
+      "sha256": [
+        "9cc5945756e416d3570019ca21d8821dfbb149727a0a271f92c9e8710382bf2e",
+        "f864631d22984d5abddda5ff4926fe0c369bda05dd6d6a904be8cc1776136468"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "NE_s1": {
+      "logs": [
+        "grid-537752_4.out",
+        "grid-540885_4.out"
+      ],
+      "sha256": [
+        "7ad90a465ab17e479f2b4f173a0e2d25b8fb53881bf6afed5def7613b6bef16a",
+        "41ac0c36d209e39e232a9ec4d0f279d4b1c0367b4967837be42ed467b19bb8ee"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "NE_s2": {
+      "logs": [
+        "grid-537752_5.out",
+        "grid-540885_5.out"
+      ],
+      "sha256": [
+        "ef53796adf951d20143ad812f0e435873d039dbdf05943679e2251b576ea8a7a",
+        "c2031b2ee1927f4500592316fb0de1f09435930dc50c378ce8d13bb75c527704"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "NW_s0": {
+      "logs": [
+        "grid-537752_0.out",
+        "grid-540885_0.out",
+        "rerun-544720.out"
+      ],
+      "sha256": [
+        "6f440d7be51510580fa175d6fcfbfcf0443cf2c4c1c1515e3985ab376d157a37",
+        "32c2a88f12d38b199335b45d9659044e2894e448e56c0bb1abf6eec16d618169",
+        "333a986a4e221c6e9a6360e173bbf7e52a4e4b398ce5c8c14e5f7baae12c625d"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "NW_s1": {
+      "logs": [
+        "grid-537752_1.out",
+        "grid-540885_1.out"
+      ],
+      "sha256": [
+        "10633b44a8f3cd49e9af2acddeaae28a866076ded9741dc687f72a66da00e3ee",
+        "525d3fb1920eda76f5950ee167fbab78d3cdbc417dad98b7a6ef6f26c67ec223"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "NW_s2": {
+      "logs": [
+        "grid-537752_2.out",
+        "grid-540885_2.out"
+      ],
+      "sha256": [
+        "830e80aef81c43aeb7b9acf9a9768ea175181b2acfbaeaf9be69fae8d8f13439",
+        "79b3c7566e64e6e28053195af4148b7f914877dacc3833fd299a975961360a11"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SE_s0": {
+      "logs": [
+        "grid-540885_9.out"
+      ],
+      "sha256": [
+        "0559c86787c556ed0fda6e815ce796930f1a6984ec1cfd05940a30bf98f54f32"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SE_s1": {
+      "logs": [
+        "grid-540885_10.out"
+      ],
+      "sha256": [
+        "ee43750065559b3a8021d4ab33b1784f6ebfeb7a16262c2d2d3a118e670f5d97"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SE_s2": {
+      "logs": [
+        "grid-540885_11.out"
+      ],
+      "sha256": [
+        "8874d67773d007992f725fe7b4699f33bd17cfb039bcb336477e35438d5177ba"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SW_s0": {
+      "logs": [
+        "grid-537752_6.out",
+        "grid-540885_6.out"
+      ],
+      "sha256": [
+        "e8e96e01c040fb359d059bdf2f86fe1dfeae010285b9b12c8a747ed7f29e16c7",
+        "a49818d76feacae6432ef6da4c0f04d03a541007a870943bb799554d764f2803"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SW_s1": {
+      "logs": [
+        "grid-540885_7.out"
+      ],
+      "sha256": [
+        "976746137d33b6655267ab42a6ae46fbbaf46116ad8ba0e8e3e75b798e7237c3"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    },
+    "SW_s2": {
+      "logs": [
+        "grid-540885_8.out"
+      ],
+      "sha256": [
+        "950a3d76cb325e40291e0644f7437a7a4ff4897ad8b449ca34712fc79087ddc3"
+      ],
+      "epochs": 120,
+      "batches": [
+        48
+      ]
+    }
+  }
+}

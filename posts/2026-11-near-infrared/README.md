@@ -35,4 +35,6 @@ From the repository root:
 
 Retraining needs a CUDA GPU. Each run keeps the 96 frames in memory, 1.69 GiB, and used at most 2.29 GiB of GPU memory (batch 16, 256-pixel crops); the runs here were made on NVIDIA H100s. `--smoke` trains for two epochs on eight frames, as a quick check of a setup.
 
+To cite this post's code and results: Atwal, K. S. (2026). *geoaiwatch: code and results for the GeoAIWatch posts* (version 2026-11-near-infrared). Zenodo. https://doi.org/10.5281/zenodo.24179267
+
 Computing resources were provided by the Office of Research Computing at George Mason University (https://orc.gmu.edu).

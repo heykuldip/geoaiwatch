@@ -45,4 +45,6 @@ Figures that show imagery carry the line: Planet Fusion © 2021 Planet Labs Inc.
 
 ## Citation
 
-[`CITATION.cff`](CITATION.cff) has the metadata for citing this repository. For the data, cite Toker et al. (2022), "DynamicEarthNet: Daily Multi-Spectral Satellite Dataset for Semantic Change Segmentation", CVPR 2022 ([arXiv:2203.12560](https://arxiv.org/abs/2203.12560)).
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24179266.svg)](https://doi.org/10.5281/zenodo.24179266)
+
+Cite the repository with its DOI, [10.5281/zenodo.24179266](https://doi.org/10.5281/zenodo.24179266), which always resolves to the latest version; each post's README gives the DOI of its own release. [`CITATION.cff`](CITATION.cff) has the metadata for citing this repository. For the data, cite Toker et al. (2022), "DynamicEarthNet: Daily Multi-Spectral Satellite Dataset for Semantic Change Segmentation", CVPR 2022 ([arXiv:2203.12560](https://arxiv.org/abs/2203.12560)).

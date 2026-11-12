@@ -7,6 +7,7 @@ authors:
     given-names: Kuldip Singh
     orcid: "https://orcid.org/0000-0002-9483-4668"
 repository-code: "https://github.com/heykuldip/geoaiwatch"
+doi: 10.5281/zenodo.24179266
 license: MIT
 abstract: "Code, results and figures behind the GeoAIWatch posts. Licences: the code is MIT; figures, results tables and checkpoints are CC BY-SA 4.0, as DynamicEarthNet's licence requires; the writing (posts, METHOD.md, READMEs) is CC BY-NC-ND 4.0. See LICENSE and LICENSES/ in the repository."
 references:

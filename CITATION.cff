@@ -7,10 +7,8 @@ authors:
     given-names: Kuldip Singh
     orcid: "https://orcid.org/0000-0002-9483-4668"
 repository-code: "https://github.com/heykuldip/geoaiwatch"
-license:
-  - MIT
-  - CC-BY-SA-4.0
-  - CC-BY-NC-ND-4.0
+license: MIT
+abstract: "Code, results and figures behind the GeoAIWatch posts. Licences: the code is MIT; figures, results tables and checkpoints are CC BY-SA 4.0, as DynamicEarthNet's licence requires; the writing (posts, METHOD.md, READMEs) is CC BY-NC-ND 4.0. See LICENSE and LICENSES/ in the repository."
 references:
   - type: conference-paper
     title: "DynamicEarthNet: Daily Multi-Spectral Satellite Dataset for Semantic Change Segmentation"

@@ -2,7 +2,7 @@
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/heykuldip/geoaiwatch/blob/2026-11-near-infrared.1/posts/2026-11-near-infrared/notebook.ipynb) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24183822.svg)](https://doi.org/10.5281/zenodo.24183822)
 
-Code and results for the GeoAIWatch post of November 2026. Two identical models learned to map land cover from DynamicEarthNet imagery, one from red, green and blue only and one with near-infrared added. Near-infrared helped most with water. [`METHOD.md`](METHOD.md) has the full method, what was fixed in advance and when, and where each number in the post comes from.
+Code and results for the [GeoAI Watch post](https://www.geoaiwatch.com/p/a-colorful-illusion-the-invisible) of November 2026. Two identical models learned to map land cover from DynamicEarthNet imagery, one from red, green and blue only and one with near-infrared added. Near-infrared helped most with water. [`METHOD.md`](METHOD.md) has the full method, what was fixed in advance and when, and where each number in the post comes from.
 
 ## What's here
 
@@ -35,6 +35,6 @@ From the repository root:
 
 Retraining needs a CUDA GPU. Each run keeps the 96 frames in memory, 1.69 GiB, and used at most 2.29 GiB of GPU memory (batch 16, 256-pixel crops); the runs here were made on NVIDIA H100s. `--smoke` trains for two epochs on eight frames, as a quick check of a setup.
 
-To cite this post's code and results: Atwal, K. S. (2026). *geoaiwatch: code and results for the GeoAIWatch posts* (version 2026-11-near-infrared.1). Zenodo. https://doi.org/10.5281/zenodo.24183822
+To cite this post's code and results: Atwal, K. S. (2026). *geoaiwatch: code and results for the GeoAI Watch posts* (version 2026-11-near-infrared.1). Zenodo. https://doi.org/10.5281/zenodo.24183822
 
 Computing resources were provided by the Office of Research Computing at George Mason University (https://orc.gmu.edu).

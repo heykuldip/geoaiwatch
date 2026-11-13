@@ -2,11 +2,11 @@
 
 [![checks](https://github.com/heykuldip/geoaiwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/heykuldip/geoaiwatch/actions/workflows/ci.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24179266.svg)](https://doi.org/10.5281/zenodo.24179266) [![Latest post](https://img.shields.io/github/v/release/heykuldip/geoaiwatch?label=latest%20post)](https://github.com/heykuldip/geoaiwatch/releases/latest)
 
-Code and results behind the posts on GeoAIWatch, a blog about what satellite imagery and AI can and can't tell us. Each post has its own folder and a tag from the day it went out, so every number in a post can be traced to the code and results it came from.
+Code and results behind the posts on [GeoAI Watch](https://www.geoaiwatch.com), a blog about what satellite imagery and AI can and can't tell us. Each post has its own folder and a tag from the day it went out, so every number in a post can be traced to the code and results it came from.
 
 | Post | Folder |
 |---|---|
-| A colorful illusion: the invisible color that finds water (November 2026) | [`posts/2026-11-near-infrared`](posts/2026-11-near-infrared) |
+| [A colorful illusion: the invisible color that finds water](https://www.geoaiwatch.com/p/a-colorful-illusion-the-invisible) (November 2026) | [`posts/2026-11-near-infrared`](posts/2026-11-near-infrared) |
 
 ## Layout
 
@@ -47,4 +47,4 @@ Figures that show imagery carry the line: Planet Fusion © 2021 Planet Labs Inc.
 
 ## Citation
 
-Cite the repository with its DOI, [10.5281/zenodo.24179266](https://doi.org/10.5281/zenodo.24179266), which always resolves to the latest version; each post's README gives the DOI of its own release. [`CITATION.cff`](CITATION.cff) has the metadata for citing this repository. For the data, cite Toker et al. (2022), "DynamicEarthNet: Daily Multi-Spectral Satellite Dataset for Semantic Change Segmentation", CVPR 2022 ([arXiv:2203.12560](https://arxiv.org/abs/2203.12560)).
+Cite the repository with its DOI, [10.5281/zenodo.24179266](https://doi.org/10.5281/zenodo.24179266), which resolves to the latest version; each post's README gives the DOI of its own release. [`CITATION.cff`](CITATION.cff) has the metadata for citing this repository. For the data, cite Toker et al. (2022), "DynamicEarthNet: Daily Multi-Spectral Satellite Dataset for Semantic Change Segmentation", CVPR 2022 ([arXiv:2203.12560](https://arxiv.org/abs/2203.12560)).

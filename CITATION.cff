@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code or its results, please cite it as below, and cite DynamicEarthNet for the data."
-title: "geoaiwatch: code and results for the GeoAIWatch posts"
+title: "geoaiwatch: code and results for the GeoAI Watch posts"
 type: software
 authors:
   - family-names: Atwal
@@ -9,7 +9,7 @@ authors:
 repository-code: "https://github.com/heykuldip/geoaiwatch"
 doi: 10.5281/zenodo.24179266
 license: MIT
-abstract: "Code, results and figures behind the GeoAIWatch posts. Licences: the code is MIT; figures, results tables and checkpoints are CC BY-SA 4.0, as DynamicEarthNet's licence requires; the writing (posts, METHOD.md, READMEs) is CC BY-NC-ND 4.0. See LICENSE and LICENSES/ in the repository."
+abstract: "Code, results and figures behind the GeoAI Watch posts. Licences: the code is MIT; figures, results tables and checkpoints are CC BY-SA 4.0, as DynamicEarthNet's licence requires; the writing (posts, METHOD.md, READMEs) is CC BY-NC-ND 4.0. See LICENSE and LICENSES/ in the repository."
 references:
   - type: conference-paper
     title: "DynamicEarthNet: Daily Multi-Spectral Satellite Dataset for Semantic Change Segmentation"

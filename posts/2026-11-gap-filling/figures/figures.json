@@ -1,0 +1,86 @@
+{
+ "figures": [
+  "01_daily_strips.png",
+  "02_label_dates.png",
+  "03_example_frame.png",
+  "04_windows.png"
+ ],
+ "code": {
+  "commit": "8d9a8e52ddec871e03379b78cc8b413c996baaed",
+  "clean": true,
+  "files": {
+   "posts/2026-11-gap-filling/scripts/series_plan.py": "2af3dcd3c0120ade163105ae05bc2958687686e79c70e9f088c5c7284a4646db",
+   "posts/2026-11-gap-filling/scripts/series_qa.py": "22147a6ff33bfa53d30fabd45d034b47b49f22c3bde2ccd98223951bcbb0e567",
+   "posts/2026-11-gap-filling/scripts/series_run.py": "63538dc84e7966f77746364369027d1abb89b953582ccab8aaeedc973ff82444",
+   "src/geoaiwatch/config.py": "253b1fa247445d33e19d76137d56c1dbdc347714930945f1de66946601625846",
+   "posts/2026-11-gap-filling/scripts/series_figures.py": "0d4768e50ba2cc72d75ef2cc6c415c7833449d3498e2f8cb6c0b1efcef6dc31c"
+  }
+ },
+ "runs": {
+  "commit": "9bef5d29b011fc0dd15984b889cf999368076c47",
+  "files": {
+   "qa_daily.csv": "d12bac3b9bf18c98d1469109782c47b4de6ce4baf06ecddf21e79b27b5a01647",
+   "qa_monthly.csv": "bc8c45038f709e7a0033651a65d4f82cc304006cdc2a2cc1c19c700f1f0e54bd",
+   "label_frames.csv": "455e16759786b0dc463618e2e95318c33101816c5c0ed10f321c772142d50cd6",
+   "label_codes.csv": "8b25830a43a3a2b2bed4c3d67d30c5e257e94f4c29db4c4ec195ca1c78ff8a5c",
+   "label_summary.csv": "1a8bf0ef1c1375746b7e7e62bb26f79ad5ea82060d71f8a2b6999b17f2ea49c2",
+   "windows.csv": "8cd64ef97f06c7c9bb53262e85450ef5cc8397a3e9d65ac3089e945556634765",
+   "windows_summary.csv": "7b3ce09bef677ec5864f7ba8517356d07f6bca0fc95cedbeab6155668be93c16",
+   "window_days.csv": "fbbae7d3e5906e15753c7e7f730f65032eae41bed1704f45dc795609d996829e",
+   "inputs.sha256": "2866f13be91f096c5217954c8c9a8d9124ff3d5f4d09b76d80aa642d68b9b62c",
+   "audit.json": "d4c453102cc6afb91aa63c4806c9e56837bec71d2070c8dabbf83b92b32eb1be"
+  }
+ },
+ "dataset": {
+  "planet/50N/30E-149N/6813_3313_13/PF-QA/2018-01-01.tif": "3ef618922d6d5337314ee2e35c5f291ac04cc46588c29087c868455c14110c18",
+  "planet/50N/30E-149N/6813_3313_13/PF-SR/2018-01-01.tif": "486413661380264a8bf1a4acce23d217681b9dc5db2a393bdf51a5144fc60f4f"
+ },
+ "captions": {
+  "shares": {
+   "6466_3380_13": "13%",
+   "6730_3430_13": "21%",
+   "6813_3313_13": "25%",
+   "7026_3201_13": "36%"
+  },
+  "nodata": 0,
+  "median_later": "10%",
+  "example": {
+   "cube": "6813_3313_13",
+   "date": "2018-01-01",
+   "tied": 13,
+   "offsets": [
+    8,
+    43
+   ],
+   "entirely_filled": true
+  },
+  "common": {
+   "dates": 21,
+   "first": "2018-04-01",
+   "cells": 84
+  }
+ },
+ "checks": {
+  "inputs": "passed",
+  "figure 1": "passed",
+  "figure 2": "passed",
+  "figure 3": "passed",
+  "figure 4": "passed",
+  "commit": "passed"
+ },
+ "software": {
+  "python": "3.11.16",
+  "numpy": "1.26.4",
+  "rasterio": "1.4.4",
+  "gdal": "3.12.3",
+  "pandas": "3.0.5",
+  "pyarrow": "25.0.0",
+  "matplotlib": "3.11.2"
+ },
+ "outputs": {
+  "01_daily_strips.png": "abe059fa21ed675f717a36b1b1261b6fcc733a01688b936382b801aedc165825",
+  "02_label_dates.png": "92c02743ea7f6ebffe8508bf0fb3001d5813b9417f163219cb9312efec016577",
+  "03_example_frame.png": "83876844ce56ed4cc19b67232e5b677e24e1593757313f0eb409951953f8a4c7",
+  "04_windows.png": "dba8bff7dea4b379c9cb2ad10f4e13481f550cc84fbc010f08796cbfcd98170d"
+ }
+}

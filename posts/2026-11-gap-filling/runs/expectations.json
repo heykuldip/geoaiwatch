@@ -1,0 +1,113 @@
+{
+ "expectations": [
+  {
+   "id": "EX1",
+   "statement": "No pixel-day in the 2,920 files is nodata in layers 1-3.",
+   "observed": {
+    "nodata_pixel_days": 0
+   },
+   "met": true,
+   "rule": "no nodata pixel-day"
+  },
+  {
+   "id": "EX2",
+   "statement": "Pooled over the four places, the share of pixel-days fully actual is at least 15% and at most 40%.",
+   "observed": {
+    "fully_actual": 733982479,
+    "pixel_days": 3061841920,
+    "share": "0.239719"
+   },
+   "met": true,
+   "rule": "15% <= share <= 40%, inclusive"
+  },
+  {
+   "id": "EX3",
+   "statement": "Andong's share of pixel-days fully actual is higher than at each of the other three places.",
+   "observed": {
+    "6466_3380_13": "0.133004",
+    "6730_3430_13": "0.212308",
+    "6813_3313_13": "0.248821",
+    "7026_3201_13": "0.364743"
+   },
+   "met": true,
+   "rule": "7026_3201_13 strictly higher than each other place"
+  },
+  {
+   "id": "EX4",
+   "statement": "At every place, fewer than a third of days are in class some.",
+   "observed": {
+    "days_some": {
+     "6466_3380_13": 117,
+     "6730_3430_13": 160,
+     "6813_3313_13": 183,
+     "7026_3201_13": 253
+    },
+    "days": 730
+   },
+   "met": false,
+   "rule": "3 x days in class some < the days of the series, each place"
+  },
+  {
+   "id": "EX5",
+   "statement": "Gaps are longest at Renshou: its median gap length, weighted by pixel-days, is larger than at each of the other three places.",
+   "observed": {
+    "median_gap_by_pixel_days": {
+     "6466_3380_13": 19,
+     "6730_3430_13": 11,
+     "6813_3313_13": 8,
+     "7026_3201_13": 6
+    }
+   },
+   "met": true,
+   "rule": "6466_3380_13 strictly larger than each other place"
+  },
+  {
+   "id": "EX6",
+   "statement": "Among filled pixel-days, the share with no PlanetScope data (L3 = -999) is higher at Renshou than at any other place, and lower at Andong than at any other place.",
+   "observed": {
+    "6466_3380_13": {
+     "no_planetscope": 602680401,
+     "filled": 663650899,
+     "share": "0.908129"
+    },
+    "6730_3430_13": {
+     "no_planetscope": 504860451,
+     "filled": 602946925,
+     "share": "0.837322"
+    },
+    "6813_3313_13": {
+     "no_planetscope": 468978029,
+     "filled": 574997612,
+     "share": "0.815617"
+    },
+    "7026_3201_13": {
+     "no_planetscope": 348522113,
+     "filled": 486264005,
+     "share": "0.716734"
+    }
+   },
+   "met": true,
+   "rule": "6466_3380_13 strictly highest and 7026_3201_13 strictly lowest"
+  },
+  {
+   "id": "EX7",
+   "statement": "For the 30-day nested window, the median covered share over a place's complete cells is at least 80% at every place.",
+   "observed": {
+    "median_covered_share_30_days": {
+     "6466_3380_13": "1.000000",
+     "6730_3430_13": "1.000000",
+     "6813_3313_13": "1.000000",
+     "7026_3201_13": "1.000000"
+    },
+    "cells": {
+     "6466_3380_13": 92,
+     "6730_3430_13": 92,
+     "6813_3313_13": 92,
+     "7026_3201_13": 92
+    }
+   },
+   "met": true,
+   "rule": "median covered share over the cells >= 80%, each place"
+  }
+ ]
+}

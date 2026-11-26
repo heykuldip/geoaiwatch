@@ -1,12 +1,13 @@
 # geoaiwatch
 
-[![checks](https://github.com/heykuldip/geoaiwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/heykuldip/geoaiwatch/actions/workflows/ci.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24179266.svg)](https://doi.org/10.5281/zenodo.24179266) [![Latest post](https://img.shields.io/github/v/release/heykuldip/geoaiwatch?label=latest%20post)](https://github.com/heykuldip/geoaiwatch/releases/latest)
+[![checks](https://github.com/heykuldip/geoaiwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/heykuldip/geoaiwatch/actions/workflows/ci.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24179266.svg)](https://doi.org/10.5281/zenodo.24179266) [![Latest post](https://img.shields.io/badge/latest%20post-Filling%20in%20the%20days-blue)](https://www.geoaiwatch.com/p/filling-in-the-days)
 
 Code and results behind the posts on [GeoAI Watch](https://www.geoaiwatch.com), a blog about what satellite imagery and AI can and can't tell us. Each post has its own folder and a tag from the day it went out, so every number in a post can be traced to the code and results it came from.
 
 | Post | Folder |
 |---|---|
 | [A colorful illusion: the invisible color that finds water](https://www.geoaiwatch.com/p/a-colorful-illusion-the-invisible) (November 2026) | [`posts/2026-11-near-infrared`](posts/2026-11-near-infrared) |
+| [Filling in the days: one pixel at a time](https://www.geoaiwatch.com/p/filling-in-the-days) (November 2026) | [`posts/2026-11-gap-filling`](posts/2026-11-gap-filling) |
 
 ## Layout
 
@@ -20,7 +21,7 @@ Code and results behind the posts on [GeoAI Watch](https://www.geoaiwatch.com), 
 git clone https://github.com/heykuldip/geoaiwatch
 cd geoaiwatch
 pip install -e ".[test]"              # analysis, results and tests
-pip install -e ".[train,figures]"     # training and figures, which need PyTorch
+pip install -e ".[train,figures]"     # the near-infrared post's training and figures, which need PyTorch
 ```
 
 Each post's folder has an `environment.yml` with the exact versions its runs used.

@@ -1,0 +1,416 @@
+{
+ "plan": {
+  "path": "posts/2026-12-gap-filling/artifacts/plan.json",
+  "sha256": "fafec0e537f03fe3c7e318ae560739ab8c79eeb65a4b3ca1bfc122e1c17b6edf",
+  "frozen_sha256": "fafec0e537f03fe3c7e318ae560739ab8c79eeb65a4b3ca1bfc122e1c17b6edf"
+ },
+ "amendments": {
+  "path": "posts/2026-12-gap-filling/artifacts/amendments.json",
+  "sha256": "2d73cea352c26afc1fd5132a7cbee2c46c149946d89d546390cd3a552a602295",
+  "ids": [
+   1
+  ]
+ },
+ "repository_inputs": {
+  "posts/2026-11-near-infrared/artifacts/cell_qa_status.parquet": "00171eb16bed02e10356b1fc9acafb771fdca4888e04466cf9a671d0786f46ab"
+ },
+ "code": {
+  "commit": "40a8b4240fc6d55122a2009443b217dd710ad38d",
+  "clean": true,
+  "files": {
+   "posts/2026-12-gap-filling/scripts/series_plan.py": "2af3dcd3c0120ade163105ae05bc2958687686e79c70e9f088c5c7284a4646db",
+   "posts/2026-12-gap-filling/scripts/series_qa.py": "22147a6ff33bfa53d30fabd45d034b47b49f22c3bde2ccd98223951bcbb0e567",
+   "posts/2026-12-gap-filling/scripts/series_run.py": "f90ae4ed2ce2f2b670e352e97feff56fead5929dbf410039aecf786db6704273",
+   "src/geoaiwatch/config.py": "253b1fa247445d33e19d76137d56c1dbdc347714930945f1de66946601625846"
+  }
+ },
+ "software": {
+  "python": "3.11.16",
+  "numpy": "1.26.4",
+  "rasterio": "1.4.4",
+  "gdal": "3.12.3",
+  "pandas": "3.0.5",
+  "pyarrow": "25.0.0"
+ },
+ "checks": {
+  "I1": "passed",
+  "I2": "passed",
+  "I3": "passed",
+  "I4": "passed",
+  "I5": "passed",
+  "I6": "passed",
+  "I7": "passed",
+  "I8": "passed",
+  "I9": "passed",
+  "I10": "passed",
+  "I11": "passed",
+  "I12": "passed",
+  "I13": "passed",
+  "pf_sr": "passed",
+  "blocks_sum": "passed",
+  "gap_days": "passed",
+  "tables": "passed"
+ },
+ "inputs": {
+  "pf_qa_files": {
+   "6466_3380_13": 730,
+   "6730_3430_13": 730,
+   "6813_3313_13": 730,
+   "7026_3201_13": 730
+  },
+  "other_entries": {
+   "6466_3380_13": [],
+   "6730_3430_13": [],
+   "6813_3313_13": [],
+   "7026_3201_13": []
+  },
+  "grids": {
+   "6466_3380_13": {
+    "crs": "EPSG:32648",
+    "transform": [
+     3.0,
+     0.0,
+     418618.4999999923,
+     0.0,
+     -3.0,
+     3317725.4999999986
+    ]
+   },
+   "6730_3430_13": {
+    "crs": "EPSG:32650",
+    "transform": [
+     3.0,
+     0.0,
+     377968.49999993446,
+     0.0,
+     -3.0,
+     3105169.499999993
+    ]
+   },
+   "6813_3313_13": {
+    "crs": "EPSG:32650",
+    "transform": [
+     3.0,
+     0.0,
+     725980.500001167,
+     0.0,
+     -3.0,
+     3598654.499999309
+    ]
+   },
+   "7026_3201_13": {
+    "crs": "EPSG:32652",
+    "transform": [
+     3.0,
+     0.0,
+     478927.50000000134,
+     0.0,
+     -3.0,
+     4045951.500000001
+    ]
+   }
+  },
+  "metadata": {
+   "6466_3380_13 2018-01-01.tif": {
+    "dataset": {
+     "": {
+      "AREA_OR_POINT": "Area"
+     },
+     "IMAGE_STRUCTURE": {
+      "COMPRESSION": "LZW",
+      "INTERLEAVE": "PIXEL"
+     },
+     "DERIVED_SUBDATASETS": "(derived by GDAL; not recorded)"
+    },
+    "bands": {},
+    "descriptions": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "beyond_image_structure": []
+   },
+   "6466_3380_13 2019-12-31.tif": {
+    "dataset": {
+     "": {
+      "AREA_OR_POINT": "Area"
+     },
+     "IMAGE_STRUCTURE": {
+      "COMPRESSION": "LZW",
+      "INTERLEAVE": "PIXEL"
+     },
+     "DERIVED_SUBDATASETS": "(derived by GDAL; not recorded)"
+    },
+    "bands": {},
+    "descriptions": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "beyond_image_structure": []
+   },
+   "6730_3430_13 2018-01-01.tif": {
+    "dataset": {
+     "": {
+      "AREA_OR_POINT": "Area"
+     },
+     "IMAGE_STRUCTURE": {
+      "COMPRESSION": "LZW",
+      "INTERLEAVE": "PIXEL"
+     },
+     "DERIVED_SUBDATASETS": "(derived by GDAL; not recorded)"
+    },
+    "bands": {},
+    "descriptions": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "beyond_image_structure": []
+   },
+   "6730_3430_13 2019-12-31.tif": {
+    "dataset": {
+     "": {
+      "AREA_OR_POINT": "Area"
+     },
+     "IMAGE_STRUCTURE": {
+      "COMPRESSION": "LZW",
+      "INTERLEAVE": "PIXEL"
+     },
+     "DERIVED_SUBDATASETS": "(derived by GDAL; not recorded)"
+    },
+    "bands": {},
+    "descriptions": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "beyond_image_structure": []
+   },
+   "6813_3313_13 2018-01-01.tif": {
+    "dataset": {
+     "": {
+      "AREA_OR_POINT": "Area"
+     },
+     "IMAGE_STRUCTURE": {
+      "COMPRESSION": "LZW",
+      "INTERLEAVE": "PIXEL"
+     },
+     "DERIVED_SUBDATASETS": "(derived by GDAL; not recorded)"
+    },
+    "bands": {},
+    "descriptions": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "beyond_image_structure": []
+   },
+   "6813_3313_13 2019-12-31.tif": {
+    "dataset": {
+     "": {
+      "AREA_OR_POINT": "Area"
+     },
+     "IMAGE_STRUCTURE": {
+      "COMPRESSION": "LZW",
+      "INTERLEAVE": "PIXEL"
+     },
+     "DERIVED_SUBDATASETS": "(derived by GDAL; not recorded)"
+    },
+    "bands": {},
+    "descriptions": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "beyond_image_structure": []
+   },
+   "7026_3201_13 2018-01-01.tif": {
+    "dataset": {
+     "": {
+      "AREA_OR_POINT": "Area"
+     },
+     "IMAGE_STRUCTURE": {
+      "COMPRESSION": "LZW",
+      "INTERLEAVE": "PIXEL"
+     },
+     "DERIVED_SUBDATASETS": "(derived by GDAL; not recorded)"
+    },
+    "bands": {},
+    "descriptions": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "beyond_image_structure": []
+   },
+   "7026_3201_13 2019-12-31.tif": {
+    "dataset": {
+     "": {
+      "AREA_OR_POINT": "Area"
+     },
+     "IMAGE_STRUCTURE": {
+      "COMPRESSION": "LZW",
+      "INTERLEAVE": "PIXEL"
+     },
+     "DERIVED_SUBDATASETS": "(derived by GDAL; not recorded)"
+    },
+    "bands": {},
+    "descriptions": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "beyond_image_structure": []
+   }
+  },
+  "metadata_beyond_image_structure": []
+ },
+ "example_frame": {
+  "cube": "6813_3313_13",
+  "date": "2018-01-01",
+  "pf_sr": "planet/50N/30E-149N/6813_3313_13/PF-SR/2018-01-01.tif",
+  "pf_sr_check": {
+   "sha256": "486413661380264a8bf1a4acce23d217681b9dc5db2a393bdf51a5144fc60f4f",
+   "bands": 4,
+   "dtypes": [
+    "int16"
+   ],
+   "nodata": null,
+   "pixels": [
+    1024,
+    1024
+   ],
+   "crs": "EPSG:32650",
+   "transform": [
+    3.0,
+    0.0,
+    725980.500001167,
+    0.0,
+    -3.0,
+    3598654.499999309
+   ],
+   "same_grid_as_pf_qa": true
+  }
+ },
+ "diagnostics": {
+  "6466_3380_13": {
+   "l2_codes_on_fully_actual": {
+    "-900": 556796,
+    "0": 90644178,
+    "900": 10608607
+   },
+   "l3_codes_on_fully_actual": {
+    "-999": 2768094,
+    "1": 90644178,
+    "2": 513683,
+    "4": 2398,
+    "5": 7874437,
+    "6": 6791
+   }
+  },
+  "6730_3430_13": {
+   "l2_codes_on_fully_actual": {
+    "-900": 6793504,
+    "0": 136247966,
+    "900": 19472085
+   },
+   "l3_codes_on_fully_actual": {
+    "-999": 12503264,
+    "1": 136247966,
+    "2": 57545,
+    "3": 8094,
+    "4": 13267,
+    "5": 13662347,
+    "6": 21072
+   }
+  },
+  "6813_3313_13": {
+   "l2_codes_on_fully_actual": {
+    "-900": 3962236,
+    "0": 160443216,
+    "900": 26057416
+   },
+   "l3_codes_on_fully_actual": {
+    "-999": 9680191,
+    "1": 160443216,
+    "2": 4228,
+    "3": 25626,
+    "4": 255987,
+    "5": 19973491,
+    "6": 80129
+   }
+  },
+  "7026_3201_13": {
+   "l2_codes_on_fully_actual": {
+    "-900": 7574990,
+    "0": 246502145,
+    "900": 25119340
+   },
+   "l3_codes_on_fully_actual": {
+    "-999": 8313913,
+    "1": 246502145,
+    "2": 512502,
+    "3": 201043,
+    "4": 122225,
+    "5": 23094723,
+    "6": 449924
+   }
+  }
+ },
+ "seconds": {
+  "6466_3380_13": 57.1,
+  "6730_3430_13": 60.9,
+  "6813_3313_13": 65.2,
+  "7026_3201_13": 65.6,
+  "total": 459.8
+ }
+}

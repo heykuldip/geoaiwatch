@@ -1,0 +1,13 @@
+cube,place,level,weight,n_uncensored,n_censored_start,n_censored_end,n_censored_both,median,p90,max
+6466_3380_13,Renshou,pixel,pixel_days,619294632,8510678,35845589,0,19,37,121
+6466_3380_13,Renshou,pixel,gaps,64629830,1042157,1048576,0,6,23,121
+6466_3380_13,Renshou,tile_none,runs,82,0,1,0,4,17,39
+6730_3430_13,Fengcheng,pixel,pixel_days,574749437,9437184,18760304,0,11,42,62
+6730_3430_13,Fengcheng,pixel,gaps,91525973,1048576,1048576,0,3,15,62
+6730_3430_13,Fengcheng,tile_none,runs,100,1,1,0,2,10,34
+6813_3313_13,Yangzhou,pixel,pixel_days,559881874,15113390,2348,0,8,27,50
+6813_3313_13,Yangzhou,pixel,gaps,111178250,1048576,2348,0,3,12,50
+6813_3313_13,Yangzhou,tile_none,runs,124,1,0,0,2,8,21
+7026_3201_13,Andong,pixel,pixel_days,482993203,122689,3148113,0,6,21,42
+7026_3201_13,Andong,pixel,gaps,132172830,77253,1048576,0,2,7,42
+7026_3201_13,Andong,tile_none,runs,145,0,1,0,2,5,10

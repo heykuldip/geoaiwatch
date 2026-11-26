@@ -1,0 +1,154 @@
+{
+  "plan": "Post 2: how much of the daily series is real",
+  "version": 2,
+  "question": "At Post 1's four places, how much of DynamicEarthNet's daily Planet Fusion series holds real observations, how long the gaps between them are, and, for pixels filled in at the label dates, whether the one source Layer 2 records for them is the same day, in the past or in the future.",
+  "scope": "Descriptive statistics of PF-QA layers 1-3 at four places over 2018-2019. No model, no estimate for DynamicEarthNet as a whole, and no data from outside the dataset.",
+  "specification": "Planet_fusion_specification_March_2021: Table 5 and sections 3.2, 4.4 and 4.7",
+  "data": {
+    "source": "DynamicEarthNet, original archive: PF-QA",
+    "places": [
+      {"cube": "6466_3380_13", "aoi": "6466_3380_13_48N", "place": "Renshou"},
+      {"cube": "6730_3430_13", "aoi": "6730_3430_13_50N", "place": "Fengcheng"},
+      {"cube": "6813_3313_13", "aoi": "6813_3313_13_50N", "place": "Yangzhou"},
+      {"cube": "7026_3201_13", "aoi": "7026_3201_13-52N", "place": "Andong"}
+    ],
+    "first_day": "2018-01-01",
+    "last_day": "2019-12-31",
+    "days_per_place": 730,
+    "label_dates": {"rule": "the first day of each month", "first": "2018-01-01", "last": "2019-12-01", "per_place": 24},
+    "tile_px": 1024,
+    "quarters": {"size_px": 512, "origin_row_col": {"NW": [0, 0], "NE": [0, 512], "SW": [512, 0], "SE": [512, 512]}},
+    "layers_read": {"1": "share of synthetic (gap-filled) versus actual data", "2": "days to the closest scene with actual data", "3": "PlanetScope cloud and shadow mask"},
+    "nodata": -1000,
+    "pf_sr": "read only for the example frame's picture"
+  },
+  "inventory": {
+    "files": "<cube>/PF-QA/<date>.tif in the dataset's zone tree",
+    "date_in_name": "YYYY-MM-DD or YYYY_MM_DD",
+    "rule": "Exactly one readable PF-QA file per place and day. A missing, duplicated or unreadable file stops the run and is listed; no day is filled or interpolated.",
+    "per_file": {"bands": 9, "dtype": "int16", "shape": [1024, 1024], "nodata": -1000, "same_crs_and_transform_within_place": true},
+    "checksums": "SHA-256 of every file read, in runs/inputs.sha256",
+    "metadata": "The metadata domains and tags of each place's first and last files are recorded in runs/audit.json. If they hold the gap-fill dates that Table 5 describes for Layer 2, that is reported, and any use of them is an amendment."
+  },
+  "definitions": {
+    "notation": "L1, L2 and L3 are layers 1, 2 and 3 of one pixel on one day (a pixel-day). Every test is on the native integer codes, with no tolerance.",
+    "order": "Each pixel-day is exactly one of nodata, fully actual or filled, tested in that order.",
+    "nodata": "L1 == -1000 or L2 == -1000 or L3 == -1000",
+    "fully_actual": "not nodata, and L1 == 1",
+    "filled": "not nodata, and 2 <= L1 <= 100",
+    "entirely_filled": "L1 == 100",
+    "blended": "2 <= L1 <= 99",
+    "fill_source": {
+      "applies_to": "filled pixel-days at the 96 label dates",
+      "same_day": "L2 in {-900, 0, 900}, reported by code: 0; 900, Sentinel-2 data of the day used to fill; -900, Landsat 8 data of the day used to fill",
+      "past": "-899 <= L2 <= -1, offset L2 days",
+      "future": "1 <= L2 <= 899, offset L2 days",
+      "limit": "For a filled pixel, Layer 2 gives a signed offset to one source. Table 5 calls it the closest scene with actual data; section 4.4 calls the reported tile the one with the highest weight. The specification doesn't reconcile the two, and this plan doesn't assume they're the same tile. Typically up to six tiles from before and after feed a fill (section 4.4), and smoothing can draw on the days either side. The measure is the share of filled pixels whose Layer 2 code points to the same day, an earlier date or a later one: a QA indicator, not the share of a fill's information that comes from later dates.",
+      "bound": "Under section 4.4's reading, where the reported tile contributes to the fill, the share pointing later is a lower bound on the share of filled pixels with any later-dated input; Table 5's wording alone doesn't establish that."
+    },
+    "layer3_status": {
+      "applies_to": "filled pixel-days, reported for entirely filled (L1 == 100) and blended (2 <= L1 <= 99) pixel-days apart",
+      "meaning": "Layer 3 is Planet's PlanetScope cloud and shadow mask (Table 5): a mask status beside a filled pixel, not a diagnosis of why Fusion filled it.",
+      "no_planetscope_data": "L3 == -999",
+      "cloud_shadow_haze": "2 <= L3 <= 6, also reported by code",
+      "misaligned": "L3 == 7",
+      "marked_clear": "L3 == 1"
+    },
+    "day_class": {
+      "all": "all 1,048,576 pixels of the tile fully actual",
+      "none": "no pixel of the tile fully actual",
+      "some": "neither"
+    },
+    "gap": "For one pixel, a maximal run of consecutive days that are not fully actual. A gap that includes 2018-01-01 or 2019-12-31 is censored: counted, and left out of the gap summaries. Runs of consecutive days in class none are censored the same way.",
+    "window": "A set of days before a label date. It is complete when every day lies in 2018-01-01..2019-12-31; an incomplete window is listed and left out of every summary.",
+    "covered": "A pixel with at least one fully-actual day in the window."
+  },
+  "weights": {
+    "primary": "Pixel-weighted: a share pools the pixel-days (or pixels) of every day, frame or cell it summarizes.",
+    "beside": "Date-weighted: the share is computed within each day, frame or cell and averaged with equal weights over those with a non-zero denominator.",
+    "when_both": "A date-weighted value is reported beside the pixel-weighted one wherever the two round to different whole percentages.",
+    "note": "Every day has 1,048,576 pixels, so the unconditional fully-actual share is the same under both weights; its date-level view is the day classes.",
+    "denominators": "A share of pixel-days counts every pixel-day it covers, nodata included; a share of filled pixel-days counts filled pixel-days only.",
+    "offsets_and_lengths": "Offsets, gap lengths and day counts are summarized by quantiles, pixel-weighted (gaps also with each gap once); date-weighting applies to shares only.",
+    "quantiles": "A quantile is the smallest observed value whose cumulative weight reaches the given fraction of the total weight (the inverted CDF; NumPy's inverted_cdf method for unweighted values), so every quantile reported is an observed whole number of days."
+  },
+  "estimands": [
+    {"id": 1, "name": "real share", "measure": "The share of pixel-days fully actual, by place and calendar month (24 months) and by place over the two years; the number of days in each day class, by place and month.", "tables": ["runs/qa_daily.csv", "runs/qa_monthly.csv"]},
+    {"id": 2, "name": "gaps", "measure": "By place, the distribution of uncensored gap lengths, weighted by pixel-days (the gap each not-fully-actual pixel-day lies in) and by gaps (each gap once): median, 90th percentile and maximum, with censored gaps counted apart; and at the tile level, the runs of consecutive days in class none.", "tables": ["runs/gaps.csv", "runs/gap_lengths.csv"]},
+    {"id": 3, "name": "label dates", "measure": "For each of the 96 label-date frames and each of its quarters: the shares of pixels fully actual and filled, and the shares of filled pixels by Layer 2 source (same day, by code; past; future); the median, 90th percentile and maximum offsets of past and of future sources; shares pooled over the 96 frames under both weights, offsets pooled pixel-weighted.", "tables": ["runs/label_frames.csv", "runs/label_cells.csv"]},
+    {"id": 4, "name": "windows", "measure": "For each cell (place, label date, quarter) and window: the covered share of the quarter's 262,144 pixels; the 10th, 50th and 90th percentiles of the pixels' numbers of fully-actual days in the window; and the number of days in the window with at least one fully-actual pixel in the quarter. For each complete 90-day cell, the shares of the quarter's pixels covered in 0, 1, 2 and all 3 of the 30-day blocks.", "tables": ["runs/windows.csv", "runs/block_coverage.csv", "runs/windows_summary.csv"]},
+    {"id": 5, "name": "Layer 3 status of filled pixel-days", "measure": "The shares of filled pixel-days by Layer 3 status, for entirely filled and blended pixel-days apart, by place and calendar month and by place over the two years.", "tables": ["runs/qa_daily.csv", "runs/qa_monthly.csv"]}
+  ],
+  "windows": {
+    "nested": {"days": [15, 30, 60, 90], "covers": "the given number of days ending the day before the label date"},
+    "blocks": {"days_before": [[1, 30], [31, 60], [61, 90]], "covers": "block [a, b] runs from b days to a days before the label date"},
+    "completeness": "No window is complete for 2018-01-01. Complete label dates per place: 23 (2018-02-01 to 2019-12-01; 368 cells) for nested 15 and 30 days and block 1-30, and 21 (2018-04-01 to 2019-12-01; 336 cells) for nested 60 and 90 days and blocks 31-60 and 61-90.",
+    "comparison": "Comparisons across windows use the 21 label dates from 2018-04-01, on which every window is complete; each window's own summary keeps all its complete label dates and shows its denominator."
+  },
+  "example_frame": {
+    "rule": "The label-date frame with the largest share of its pixels filled and with a future Layer 2 source; a tie goes to the earliest label date, then to the lowest cube number.",
+    "shown": "The frame's PF-SR true color on the label date and its Layer 2 map, disclosed as the extreme, with the median of the same share over the 96 frames beside it. The map shows past and future offsets on a diverging scale; 0, 900 (Sentinel-2 data of the day) and -900 (Landsat 8 data of the day) as categories of their own, not as offsets; fully-actual pixels as one category; and nodata masked.",
+    "seen_before": "Label-date Layer 2 summaries were computed before this plan, so the frame this rule picks may be foreseeable; the rule picks it, not a look."
+  },
+  "figures": [
+    "01_daily_strips: each place's 730 days as a strip colored by the share of pixels fully actual, with the label dates marked",
+    "02_label_dates: the 96 label-date frames as stacked bars: fully actual; filled, by Layer 2 source (same day, past, future); and nodata if any",
+    "03_example_frame: the example frame's true color and Layer 2 map, drawn as example_frame.shown says, with the 96-frame median beside it",
+    "04_windows: the covered shares of complete cells, by place and window"
+  ],
+  "invariants": [
+    {"id": "I1", "check": "730 PF-QA files per place, one for each day from 2018-01-01 to 2019-12-31, none duplicated."},
+    {"id": "I2", "check": "Each file has 9 bands of int16, 1024 x 1024 pixels and nodata -1000; the files of a place share one CRS and transform."},
+    {"id": "I3", "check": "Every pixel-day has L1 in 1..100 or -1000, L2 in -900..900 or -1000, and L3 in 1..7, -999 or -1000."},
+    {"id": "I4", "check": "For every place, day and quarter, fully actual + filled + nodata = 262,144; filled = entirely filled + blended = the sum of the Layer 3 statuses; at the label dates, same day + past + future = filled."},
+    {"id": "I5", "check": "For every place and day, the four quarters' counts sum to the tile's 1,048,576 pixels."},
+    {"id": "I6", "check": "For every place, all + some + none = 730 days."},
+    {"id": "I7", "check": "For every pixel, its fully-actual days and the days in its gaps sum to 730."},
+    {"id": "I8", "check": "Every window has its declared number of days and ends no later than the day before its label date; the complete windows lie wholly in the series, and their numbers per window are those in windows.completeness."},
+    {"id": "I9", "check": "At the 96 label dates, Layer 1 reproduces Post 1's committed tables: 14 frames with every pixel 1, 55 with every pixel 100, 27 others; and the fully actual and entirely filled flags of all 384 quarters match artifacts/cell_qa_status.parquet of Post 1 row by row (70 and 237)."},
+    {"id": "I10", "check": "At the 96 label dates, L2 = 900 or -900 occurs in 11 frames, on 4,757,275 pixels (900: 4,209,777; -900: 547,498), as Post 1's records give."},
+    {"id": "I11", "check": "The example frame's rule returns exactly one frame."},
+    {"id": "I12", "check": "The nested 30-day window and block 1-30 cover the same days, and every value computed for them is identical."},
+    {"id": "I13", "check": "For every complete 90-day cell, the pixels covered in 0, 1, 2 and 3 blocks sum to 262,144; those covered in at least one block are exactly those covered by the 90-day window; and those covered in all three are no more than those covered in any one block."}
+  ],
+  "expectations": [
+    {"id": "EX1", "statement": "No pixel-day in the 2,920 files is nodata in layers 1-3.", "basis": "The product is gap-free in space and time by design (section 4.4)."},
+    {"id": "EX2", "statement": "Pooled over the four places, the share of pixel-days fully actual is at least 15% and at most 40%.", "basis": "At the 96 label dates the pooled share lies between 22% and 34%: 14 frames are fully actual, 15 more are over half fully actual, 6 are fully actual on some pixels but at most half, and 61 have no fully-actual pixel; the first day of each month is a systematic sample of days."},
+    {"id": "EX3", "statement": "Andong's share of pixel-days fully actual is higher than at each of the other three places.", "basis": "12 of its 24 label-date frames are over half fully actual, against 5, 7 and 5 at Renshou, Fengcheng and Yangzhou."},
+    {"id": "EX4", "statement": "At every place, fewer than a third of days are in class some.", "basis": "At the label dates, 21 of the 96 frames (22%) are partial by exact counts."},
+    {"id": "EX5", "statement": "Gaps are longest at Renshou: its median gap length, weighted by pixel-days, is larger than at each of the other three places.", "basis": "Renshou ties with Yangzhou for the fewest mostly-actual label-date frames (5 of 24) and lies in the Sichuan Basin, known for persistent winter cloud and fog."},
+    {"id": "EX6", "statement": "Among filled pixel-days, the share with no PlanetScope data (L3 = -999) is higher at Renshou than at any other place, and lower at Andong than at any other place.", "basis": "PlanetScope acquisition frequency over the four places, seen in Planet's catalog in unpublished work."},
+    {"id": "EX7", "statement": "For the 30-day nested window, the median covered share over a place's complete cells is at least 80% at every place.", "basis": "An expectation that fully-actual days are spread out enough, informed by the label-date sample; the overall share of fully-actual pixel-days (EX2's basis) does not by itself imply this coverage, since fully-actual days can cluster."}
+  ],
+  "expectations_written": "With the exposure under already_seen: expectations informed by exploratory work, not blind predictions. EX2-EX5 draw on the label dates, which are part of the series measured.",
+  "no_expectation": "Estimand 3: label-date Layer 2 summaries were computed before this plan, so a stated expectation would not be a test.",
+  "already_seen": [
+    "Layer 1 classes of the 96 label-date frames and their 384 quarters, by exact codes (Post 1's artifacts/cell_qa_status.parquet and artifacts/frame_endpoints.parquet), and the frame counts by share fully actual in Post 1's artifacts/screen_config.json.",
+    "Layer 2 at the 96 label dates: per-frame median and 90th-percentile offsets, with same-day codes as zero distance (Post 1's artifacts/frame_qa_summary.parquet), and the counts of same-day codes.",
+    "In unpublished work: eight label-date frames in detail, by Layer 1, 2 and 3 categories; PF-QA on at least seven other days, the acquisition dates of PlanetScope scenes examined there; and PlanetScope acquisition frequency over the four places in Planet's catalog. Which frames and days these were comes from Planet's catalog, which this project doesn't publish, so they aren't listed.",
+    "An exploratory analysis of the daily series at four other places, in the Americas: PlanetScope coverage close to all or nothing on each day, and cloudier weather on days without PlanetScope data.",
+    "Not seen: the daily PF-QA series of these four places, apart from the days described above."
+  ],
+  "outputs": [
+    "runs/inputs.sha256",
+    "runs/qa_daily.csv: one row per place, day and quarter (11,680), with the counts behind estimands 1 and 5",
+    "runs/qa_monthly.csv",
+    "runs/gaps.csv",
+    "runs/gap_lengths.csv: gaps and pixel-days by place and gap length, censored apart",
+    "runs/label_frames.csv (96 rows)",
+    "runs/label_cells.csv (384 rows)",
+    "runs/windows.csv",
+    "runs/block_coverage.csv: for each complete 90-day cell, the pixels covered in 0, 1, 2 and 3 of the 30-day blocks (336 rows)",
+    "runs/windows_summary.csv: by place and window, on each window's complete label dates and on the common 21",
+    "runs/audit.json: the invariants' results, diagnostics (Layer 2 and Layer 3 codes on fully-actual pixel-days), the files' metadata tags, the code's commit, plan.json's SHA-256 and the software versions",
+    "runs/expectations.json: each expectation with its observed value, met or not met",
+    "figures/01_daily_strips.png, figures/02_label_dates.png, figures/03_example_frame.png, figures/04_windows.png"
+  ],
+  "reporting": {
+    "shares": "whole percentages, with one decimal below 1%",
+    "offsets": "signed days, such as +7 d and -3 d",
+    "attribution": "Planet Fusion © 2021 Planet Labs Inc. / DynamicEarthNet (Toker et al. 2022) · CC BY-SA 4.0 · modified",
+    "results": "Every estimand and expectation is reported whether or not it matches; no definition changes after the run."
+  },
+  "changes": "A change after this plan is frozen is a dated amendment in artifacts/amendments.json, with its reason and whether any result had been seen."
+}

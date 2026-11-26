@@ -15,7 +15,7 @@ jobs:
       - run: pip install -e ".[test]"
       - run: ruff check .
       - run: pytest -q
-      - run: pytest -q --nbmake posts/*/notebook.ipynb
+      - run: pytest -q --nbmake posts/*/*.ipynb
 
   secrets:
     runs-on: ubuntu-latest

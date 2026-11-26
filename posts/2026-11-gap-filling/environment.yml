@@ -1,0 +1,15 @@
+# The environment the post's run and figures used (as recorded in runs/audit.json and
+# figures/figures.json). conda env create -f environment.yml, then
+# conda activate geoaiwatch-gap-filling, then python -m pip install -e ".[test]" from the
+# repository root (the tests, the notebook's runner and the linter; no PyTorch)
+name: geoaiwatch-gap-filling
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy=1.26.4
+  - pandas=3.0.5
+  - pyarrow=25.0.0
+  - rasterio=1.4.4
+  - matplotlib=3.11.2
+  - pip

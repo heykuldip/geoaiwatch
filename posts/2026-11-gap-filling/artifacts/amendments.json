@@ -1,0 +1,28 @@
+{
+  "plan": "posts/2026-12-gap-filling/artifacts/plan.json",
+  "plan_sha256": "fafec0e537f03fe3c7e318ae560739ab8c79eeb65a4b3ca1bfc122e1c17b6edf",
+  "amendments": [
+    {
+      "id": 1,
+      "date": "2026-11-18",
+      "results_seen": "None. No estimand had been computed on the daily series of these four places, and the plan's code had run on synthetic data only.",
+      "reason": "Estimand 3 asks for shares pooled over the 96 frames and offsets pooled pixel-weighted, and the example frame is shown with the median of its share over the 96 frames, but no output of the plan holds these values: label_frames.csv has one row per frame. Writing the code also met choices that the plan's text leaves open. This amendment fixes them before any result.",
+      "outputs_added": [
+        "runs/label_summary.csv: estimand 3 pooled over the 96 frames, with shares under both weights and offsets pixel-weighted; and the example frame, with the median of its share over the 96 frames.",
+        "runs/label_codes.csv: for each label-date cell, the filled pixels by Layer 2 code, from which every share and offset of estimand 3 can be recomputed.",
+        "runs/window_days.csv: for each complete window and cell, the pixels by number of fully-actual days, from which every quantile of estimand 4 can be recomputed."
+      ],
+      "clarifications": [
+        "Past offsets are summarized by their distance in days: the median, 90th percentile and maximum of a past source's offset are those of |L2|, reported with a minus sign, so the maximum past offset is the earliest source.",
+        "The example frame's share is the number of its pixels that are filled and have a future Layer 2 source (1 <= L2 <= 899), over all 1,048,576 of its pixels. A frame qualifies only with at least one such pixel, so I11 fails if no frame does. The lowest cube number is the first number of the cube ID. The median of the share over the 96 frames takes each frame once.",
+        "An incomplete window is listed in windows.csv without values.",
+        "Expectations are judged on exact counts, before rounding. \"At least\" and \"at most\" include the bound; \"higher\", \"larger\", \"lower\" and \"fewer than\" are strict. For EX6, the filled pixel-days are the entirely filled and the blended ones together, over the two years. For EX7, the median is over the 92 cells of a place's complete 30-day windows, each cell once.",
+        "I9 tests Layer 1 alone, as it is worded. I10 counts L2 = 900 and L2 = -900 over all pixels of the 96 frames, whatever their Layer 1.",
+        "A censored gap is recorded as censored at the start of the series, at its end, or at both.",
+        "runs/inputs.sha256 lists the dataset files read, with paths relative to the dataset's folder, including the example frame's PF-SR file, which is hashed at the end of the run. The repository files read (plan.json, this file, and Post 1's artifacts/cell_qa_status.parquet) have their SHA-256 in runs/audit.json.",
+        "windows_summary.csv gives, by place, window and set of label dates (the window's own complete label dates, and the 21 from 2018-04-01 on which every window is complete): the number of cells; the covered share, pooled over the cells' pixels; the median covered share over the cells, each cell once; the 10th, 50th and 90th percentiles of the pixels' numbers of fully-actual days, pooled over the cells' pixels; the median over the cells of the number of days with at least one fully-actual pixel; and, for the 90-day window, the shares of pixels covered in 0, 1, 2 and 3 of the 30-day blocks, pooled. In gaps.csv, the runs of consecutive days in class none are summarized with each run once.",
+        "Tables carry the pixel-weighted and date-weighted values side by side; a date-weighted share is left empty where no day, frame or cell has a non-zero denominator."
+      ]
+    }
+  ]
+}

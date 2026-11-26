@@ -1,6 +1,6 @@
 # Filling in the days: one pixel at a time
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/heykuldip/geoaiwatch/blob/2026-11-gap-filling/posts/2026-11-gap-filling/gap_filling.ipynb) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.TO-COME.svg)](https://doi.org/10.5281/zenodo.TO-COME)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/heykuldip/geoaiwatch/blob/2026-11-gap-filling/posts/2026-11-gap-filling/gap_filling.ipynb) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24549513.svg)](https://doi.org/10.5281/zenodo.24549513)
 
 Code and results for the [GeoAI Watch post](https://www.geoaiwatch.com/p/filling-in-the-days) of November 2026. At the four places of the [near-infrared post](../2026-11-near-infrared), it counts how much of DynamicEarthNet's daily Planet Fusion series is marked real, with no gap filling, in the quality file that comes with each day's image. It counts how many pixel-days are fully actual and how long the gaps between them run; on the days with labels, where the one source recorded for a filled pixel lies in time; and how many fully-actual days come before each label date. [`METHOD.md`](METHOD.md) has the full method, what was fixed in advance and in what order, the expectations and how each fared, and where each number in the post comes from.
 
@@ -65,6 +65,6 @@ The figures, too, expect a git checkout with a clean tree and record its commit;
 
 `environment.yml` pins the versions the run and the figures used.
 
-To cite this post's code and results: Atwal, K. S. (2026). *geoaiwatch: code and results for the GeoAI Watch posts* (version 2026-11-gap-filling). Zenodo. https://doi.org/10.5281/zenodo.TO-COME
+To cite this post's code and results: Atwal, K. S. (2026). *geoaiwatch: code and results for the GeoAI Watch posts* (version 2026-11-gap-filling). Zenodo. https://doi.org/10.5281/zenodo.24549513
 
 Computing resources were provided by the Office of Research Computing at George Mason University (https://orc.gmu.edu).
